@@ -13,6 +13,36 @@ body {
     z-index: 10;
 }
 
+#content {
+    height: 100vh;
+    position: relative;
+    display: none;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s;
+}
+
+/* @-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 } 
+    to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+    from { bottom:-100px; opacity:0 } 
+    to { bottom:0; opacity:1 }
+} */
+
+@-webkit-keyframes animatebottom {
+    from { opacity:0 } 
+    to { opacity:1 }
+}
+
+@keyframes animatebottom { 
+    from { opacity:0 } 
+    to { opacity:1 }
+}
+
 .intro {
     padding-top: 2.5vh;
 }
@@ -21,7 +51,8 @@ body {
     display: inline-block;
     font-weight: 700;
     font-size: 7.5vh;
-    background: linear-gradient(90deg, #EE4266, #3CBBB1);
+    /* background: linear-gradient(90deg, #EE4266, #3CBBB1); */
+    background: linear-gradient(45deg, #3023AE 0%, #f09 100%);;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
@@ -34,9 +65,96 @@ body {
     color: #C4CBCA;
 }
 
-.background-img {
+.loader {
     position: absolute;
-    opacity: 0.2;
-    height: 7.5vh;
-    z-index: 5 !important;
+    opacity: 0;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 10vh;
+    height: 10vh;
+    margin: -76px 0 0 -76px;
+    border: 5px solid #3023AE;
+    border-radius: 50%;
+    border-top: 5px solid #f09;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    transition: opacity ease-in .5s;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.bubble {
+    position: absolute;
+    display: inline-block;
+    margin: 5vw 5vw 5vw 5vw;
+    background: linear-gradient(45deg, #3023AE 0%, #f09 100%);
+    height: 35vh;
+    width: 35vh;
+    border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+}
+
+@keyframes morph {
+    0% { border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%; }
+    100% { border-radius: 40% 60%; }
+}
+
+.bubble:nth-child(1) {
+    top: 10vh;
+    left: 70vw;
+    height: 45vh;
+    width: 45vh;
+    animation: morph 10s linear infinite alternate;
+}
+
+.bubble:nth-child(2) {
+    top: 30vh;
+    left: 55vw;
+    height: 25vh;
+    width: 25vh;
+    animation: morph 5s linear infinite alternate;
+}
+
+.bubble:nth-child(3) {
+    top: 32.5vh;
+    height: 35vh;
+    width: 35vh;
+    animation: morph 7.5s linear infinite alternate;
+}
+
+.bubble:nth-child(4) {
+    top: 10vh;
+    left: 25vw;
+    height: 20vh;
+    width: 20vh;
+    animation: morph 5s linear infinite alternate;
+}
+
+.bubble:nth-child(5) {
+    top: 12.5vh;
+    left: 37.5vw;
+    height: 20vh;
+    width: 20vh;
+    animation: morph 7.5s linear infinite alternate;
+}
+
+.bubble:nth-child(6) {
+    top: 35vh;
+    left: 30vw;
+    height: 35vh;
+    width: 35vh;
+    animation: morph 10s linear infinite alternate;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
 }

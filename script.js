@@ -7,10 +7,11 @@ window.onload = function() {
 }
 
 $(document).ready(function(){
-    for (i=0; i<9; i++) {
-        x = Math.random() * (90 - 0)
-        y = Math.random() * (90 - 0)
-        $('.background-img:nth-child('+i+')').css('top', y + 'vh')
-        $('.background-img:nth-child('+i+')').css('left', x + 'vw')
+    // Loader
+    function loader() {
+        $('.loader').css('opacity', '0')
+        $('#content').css('display', 'block')
     }
+    $('.loader').css('opacity', '1')
+    setTimeout(loader, 3000) // Change to 3000
 });
